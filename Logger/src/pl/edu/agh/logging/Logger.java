@@ -82,7 +82,7 @@ public class Logger implements Logger_I {
 
 	@Override
 	public void error(String... messages) {
-		log(Level.INFO, messages);
+		log(Level.ERROR, messages);
 	}
 
 	@Override

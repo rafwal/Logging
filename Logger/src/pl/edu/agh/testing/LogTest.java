@@ -15,7 +15,7 @@ public class LogTest {
 		Handler fileHandler = null;
 		
 		try {
-			fileHandler = new FileHandler(Paths.get("C:\\Users\\Rafal W\\Desktop\\PO\\QuadraticEquationsSolver\\src\\testFiles\\logTes.txt"));
+			fileHandler = new FileHandler(Paths.get("/home/rafal/Desktop/logfile"));
 		} catch (IOException e) {
 			System.out.println("Error While Creating file");
 		}
@@ -26,7 +26,8 @@ public class LogTest {
 		logger.addHandler(fileHandler);
 		logger.setLevel(Level.WARNING);
 		
-		logger.info("CHUJ");
-		logger.warning("JA JEBIE");		
+		logger.info("info");
+		logger.warning("warning");
+		logger.error("error1", "error2");
 	}
 }

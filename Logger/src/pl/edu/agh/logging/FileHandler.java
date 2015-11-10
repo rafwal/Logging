@@ -7,14 +7,28 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
 
+/**
+ * This handler is used to save logs to the file
+ */
 public class FileHandler extends Handler {
 
+	/**
+	 * Path instance indicating file, where Handler should publish logs
+	 */
 	Path path;
 	
-	public FileHandler(Path path) throws IOException{
+	/**
+	 * Creates Handler with given Path
+	 * @param path - path to file(if file exists logs will be appended in the end, if not
+	 * file will be created. 
+	 */
+	public FileHandler(Path path){
 		this.path = path;		
 	}
 	
+	/* (non-Javadoc)
+	 * @see pl.edu.agh.logging.interfaces.Handler_I#publish(pl.edu.agh.logging.LogRecord)
+	 */
 	@Override
 	public boolean publish(LogRecord record){
 		if (!this.isLoggable(record))

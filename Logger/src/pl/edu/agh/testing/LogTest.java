@@ -1,6 +1,7 @@
 package pl.edu.agh.testing;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import pl.edu.agh.logging.ConsoleHandler;
@@ -14,11 +15,9 @@ public class LogTest {
 		Handler consoleHandler = new ConsoleHandler();
 		Handler fileHandler = null;
 		
-		try {
-			fileHandler = new FileHandler(Paths.get("/home/rafal/Desktop/logfile"));
-		} catch (IOException e) {
-			System.out.println("Error While Creating file");
-		}
+		Path path = Paths.get("/home/rafal/Desktop/logfile");
+		
+		fileHandler = new FileHandler(path);
 		consoleHandler.setLevel(Level.WARNING);
 		
 		Logger logger = new Logger();
